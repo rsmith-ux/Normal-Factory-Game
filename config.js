@@ -7,8 +7,8 @@
 const CONFIG = Object.freeze({
 
   // ── Map ──────────────────────────────────────────
-  MAP_COLS: 37,          // number of grid columns
-  MAP_ROWS: 30,          // number of grid rows
+  MAP_COLS: 35,          // number of grid columns
+  MAP_ROWS: 17,          // number of grid rows
   CELL_SIZE: 32,         // pixels per cell (renderer uses this)
 
   // ── Ore Veins ────────────────────────────────────
@@ -43,9 +43,9 @@ const CONFIG = Object.freeze({
     CONVEYOR:   '#66bb6a',
     CONVEYOR_BG:'rgba(102,187,106,0.15)',
     MINE:       '#4fc3f7',
-    MINE_BG:    'rgba(79,195,247,0.15)',
+    MINE_BG:    'rgba(79,195,247,0.5)',
     SELL:       '#ba68c8',
-    SELL_BG:    'rgba(186,104,200,0.15)',
+    SELL_BG:    'rgba(186,104,200,0.5)',
     HOVER:      'rgba(255,255,255,0.06)',
     SELECT:     'rgba(79,195,247,0.20)',
     TEXT_MAIN:  '#e0e0e0',
