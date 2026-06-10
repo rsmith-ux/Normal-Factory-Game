@@ -39,7 +39,7 @@ const CONFIG = Object.freeze({
     GRID_LINE:  '#1e3a5f',
     ACCENT:     '#4fc3f7',
     ORE:        '#ff9800',
-    ORE_GLOW:   'rgba(255,152,0,0.25)',
+    ORE_GLOW:   'rgba(255,152,0,0)',
     CONVEYOR:   '#66bb6a',
     CONVEYOR_BG:'rgba(102,187,106,0.15)',
     MINE:       '#4fc3f7',
