@@ -7,19 +7,19 @@
 const CONFIG = Object.freeze({
 
   // ── Map ──────────────────────────────────────────
-  MAP_COLS: 40,          // number of grid columns
+  MAP_COLS: 37,          // number of grid columns
   MAP_ROWS: 30,          // number of grid rows
   CELL_SIZE: 32,         // pixels per cell (renderer uses this)
 
   // ── Ore Veins ────────────────────────────────────
-  ORE_VEIN_COUNT: 8,     // how many distinct ore veins to generate
+  ORE_VEIN_COUNT: 4,     // how many distinct ore veins to generate
   ORE_MIN_SIZE: 2,       // minimum radius (in cells) of a vein cluster
-  ORE_MAX_SIZE: 5,       // maximum radius (in cells) of a vein cluster
+  ORE_MAX_SIZE: 3,       // maximum radius (in cells) of a vein cluster
   ORE_MIN_RICHNESS: 1,   // minimum ore units a single cell can hold
   ORE_MAX_RICHNESS: 3,   // maximum ore units a single cell can hold
 
   // ── Tick / Speed ─────────────────────────────────
-  BASE_TICK_MS: 1000,     // milliseconds per game tick at 1x speed
+  BASE_TICK_MS: 900,     // milliseconds per game tick at 1x speed
   SPEED_LEVELS: [0.5, 1, 2, 4],  // available speed multipliers (index 1 = default)
   DEFAULT_SPEED_IDX: 1,
 
