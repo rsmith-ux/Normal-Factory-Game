@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FactoryOS</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<div id="app">
+
+  <!-- ═══════════════════════════════════════════════════════
+       HEADER — logo + live ticker + save/reset controls
+  ═══════════════════════════════════════════════════════ -->
+  <header>
+    <span class="logo">⚙ FACTORYOS</span>
+
+    <div class="ticker-wrap" title="Factory status feed">
+      <span id="ticker-content">Initialising systems…</span>
+    </div>
+
+    <div class="header-actions">
+      <button id="btn-save" class="btn-sm">💾 Save</button>
+      <button id="btn-reset" class="btn-sm btn-danger">↺ Reset</button>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════════════════════
+       LEFT SIDEBAR — resource inventory
+  ═══════════════════════════════════════════════════════ -->
+  <aside id="sidebar" class="panel">
+    <div class="panel-title">📦 Inventory</div>
+    <div class="panel-scroll">
+      <div id="inventory">
+        <!-- Rendered by ui.js → renderInventory() -->
+      </div>
+    </div>
+  </aside>
+
+  <!-- ═══════════════════════════════════════════════════════
+       MAIN AREA — buildings you can build / own
+  ═══════════════════════════════════════════════════════ -->
+  <main id="main">
+    <div id="buildings">
+      <!-- Rendered by ui.js → renderBuildings() -->
+    </div>
+  </main>
+
+  <!-- ═══════════════════════════════════════════════════════
+       RIGHT PANEL — production rates, power, tech points
+  ═══════════════════════════════════════════════════════ -->
+  <aside id="right" class="panel">
+    <div class="panel-title">📊 Factory Stats</div>
+    <div class="panel-scroll">
+      <div id="stats">
+        <!-- Rendered by ui.js → renderStats() -->
+      </div>
+    </div>
+  </aside>
+
+</div>
+
+<!-- Toast notification layer -->
+<div id="toasts" aria-live="polite"></div>
+
+<!-- Entry point (ES module; works as-is on GitHub Pages) -->
+<script type="module" src="js/main.js"></script>
+
+</body>
+</html>
