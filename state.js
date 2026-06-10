@@ -38,7 +38,7 @@ const State = (() => {
   let _selectedTool = 'delete';
   let _hoveredCell = null;
   let _selectedCell = null;
-
+let _mapSeed = 0;
   // ── Helpers ────────────────────────────────────
 
   /** Canonical string key for a grid position */
@@ -102,7 +102,8 @@ const State = (() => {
     get selectedTool() { return _selectedTool; },
     get hoveredCell()  { return _hoveredCell; },
     get selectedCell() { return _selectedCell; },
-
+get mapSeed()  { return _mapSeed; },
+set mapSeed(s) { _mapSeed = s; },
     // Mutators
     setGrid(g)           { _grid = g; },
     incrementTick()      { _tick++; },
