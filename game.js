@@ -50,8 +50,10 @@ const Game = (() => {
   // ── Init ───────────────────────────────────────
   function init() {
     // 1. Generate map
-    const grid = MapGen.generate();
-    State.setGrid(grid);
+   const seed = Math.floor(Math.random() * 0xFFFFFF);
+State.mapSeed = seed;
+const grid = MapGen.generate(seed);
+State.setGrid(grid);
 
     // 2. Init renderer (sets canvas size)
     const canvas = document.getElementById('game-canvas');
