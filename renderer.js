@@ -105,18 +105,7 @@ const Renderer = (() => {
     }
   }
 
-  /** Small richness indicator — stacked dots in the top-left corner */
-  function drawOreIndicator(px, py, richness) {
-    const dotR = 2.5;
-    const maxDots = CONFIG.ORE_MAX_RICHNESS;
-    const shown = Math.min(richness, maxDots);
-    for (let i = 0; i < shown; i++) {
-      ctx.beginPath();
-      ctx.arc(px + 5 + i * 6, py + 5, dotR, 0, Math.PI * 2);
-      ctx.fillStyle = CONFIG.COLORS.ORE;
-      ctx.fill();
-    }
-  }
+
 
   // ── Grid lines ─────────────────────────────────
   function drawGrid(ox, oy, cols, rows) {
