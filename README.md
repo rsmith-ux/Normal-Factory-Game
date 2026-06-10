@@ -1,5 +1,5 @@
 # ⚙ FactoryGrid
-
+ https://rsmith-ux.github.io/Normal-Factory-Game/
 A modular, open-world factory game foundation built for GitHub Pages.  
 No build step, no dependencies — pure HTML + CSS + JS.
 
