@@ -1,0 +1,274 @@
+/* ═══════════════════════════════════════════════════
+   FACTORY GRID — Style Sheet
+   Palette:
+     bg-deep:    #0d1117
+     bg-panel:   #111827
+     bg-cell:    #1a2332
+     accent:     #4fc3f7  (cyan — UI chrome)
+     ore:        #ff9800  (amber — iron veins)
+     conveyor:   #66bb6a  (green — logistics)
+     sell:       #ba68c8  (purple — commerce)
+     danger:     #ef5350  (red — delete / alerts)
+     text-main:  #e0e0e0
+     text-dim:   #607d8b
+═══════════════════════════════════════════════════ */
+
+/* ── Reset & Base ────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg-deep:    #0d1117;
+  --bg-panel:   #111827;
+  --bg-cell:    #1a2332;
+  --border:     #1e3a5f;
+  --accent:     #4fc3f7;
+  --ore:        #ff9800;
+  --conveyor:   #66bb6a;
+  --sell:       #ba68c8;
+  --danger:     #ef5350;
+  --text-main:  #e0e0e0;
+  --text-dim:   #607d8b;
+  --topbar-h:   44px;
+  --sidebar-w:  200px;
+  --footer-h:   30px;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+  background: var(--bg-deep);
+  color: var(--text-main);
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 13px;
+}
+
+/* ── Top Bar ─────────────────────────────────────── */
+#topbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--topbar-h);
+  background: var(--bg-panel);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  gap: 16px;
+  z-index: 100;
+  user-select: none;
+}
+
+#game-title {
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--accent);
+  letter-spacing: 0.05em;
+  min-width: 140px;
+}
+
+#resource-bar {
+  display: flex;
+  gap: 20px;
+  flex: 1;
+}
+
+.res-item {
+  color: var(--text-dim);
+  font-size: 12px;
+}
+.res-item strong {
+  color: var(--text-main);
+  font-family: 'Courier New', monospace;
+  font-size: 13px;
+}
+
+#top-controls {
+  display: flex;
+  gap: 4px;
+}
+
+#top-controls button {
+  background: var(--bg-cell);
+  border: 1px solid var(--border);
+  color: var(--text-main);
+  padding: 4px 10px;
+  cursor: pointer;
+  border-radius: 3px;
+  font-size: 12px;
+  transition: background 0.15s;
+}
+#top-controls button:hover { background: var(--border); }
+
+/* ── Main Layout ─────────────────────────────────── */
+#main-layout {
+  position: fixed;
+  top: var(--topbar-h);
+  bottom: var(--footer-h);
+  left: 0; right: 0;
+  display: flex;
+}
+
+/* ── Sidebar ─────────────────────────────────────── */
+#sidebar {
+  width: var(--sidebar-w);
+  background: var(--bg-panel);
+  border-right: 1px solid var(--border);
+  overflow-y: auto;
+  flex-shrink: 0;
+  padding: 8px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+#sidebar::-webkit-scrollbar { width: 4px; }
+#sidebar::-webkit-scrollbar-track { background: transparent; }
+#sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+.panel-title {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--text-dim);
+  padding: 6px 12px 4px;
+  text-transform: uppercase;
+}
+
+.build-category {
+  padding: 2px 0 6px;
+}
+
+.category-label {
+  font-size: 10px;
+  color: var(--text-dim);
+  padding: 4px 12px 2px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-top: 1px solid var(--border);
+  margin-top: 4px;
+}
+
+.build-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  background: none;
+  border: none;
+  border-left: 3px solid transparent;
+  color: var(--text-main);
+  padding: 6px 10px;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.1s, border-color 0.1s;
+}
+.build-btn:hover { background: var(--bg-cell); }
+.build-btn.active {
+  background: rgba(79, 195, 247, 0.08);
+  border-left-color: var(--accent);
+}
+
+.btn-icon { font-size: 14px; width: 20px; text-align: center; flex-shrink: 0; }
+.btn-label { flex: 1; font-size: 12px; }
+.btn-cost { font-size: 10px; color: var(--text-dim); font-family: monospace; }
+
+/* Colour-code button icons by category */
+[data-type="mine"] .btn-icon { color: var(--ore); }
+[data-type^="conveyor"] .btn-icon { color: var(--conveyor); }
+[data-type="sell_point"] .btn-icon { color: var(--sell); }
+[data-type="delete"] .btn-icon { color: var(--danger); }
+[data-type="delete"].active { border-left-color: var(--danger); background: rgba(239,83,80,0.08); }
+
+/* Selected tool box */
+#selected-tool-box {
+  margin-top: auto;
+  border-top: 1px solid var(--border);
+  padding: 6px 0;
+}
+
+#selected-tool-name {
+  padding: 2px 12px 4px;
+  font-size: 13px;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+#selected-tool-desc {
+  padding: 0 12px 4px;
+  font-size: 11px;
+  color: var(--text-dim);
+  line-height: 1.5;
+}
+
+/* Inspector */
+#inspector-box {
+  border-top: 1px solid var(--border);
+  padding: 6px 0 10px;
+}
+
+#inspector-content {
+  padding: 4px 12px;
+  font-size: 11px;
+  color: var(--text-dim);
+  line-height: 1.7;
+  font-family: 'Courier New', monospace;
+}
+
+/* ── Canvas Wrapper ──────────────────────────────── */
+#canvas-wrapper {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-deep);
+}
+
+#game-canvas {
+  display: block;
+  cursor: crosshair;
+  image-rendering: pixelated;
+}
+
+#map-coords {
+  position: absolute;
+  bottom: 6px;
+  right: 8px;
+  font-size: 10px;
+  font-family: monospace;
+  color: var(--text-dim);
+  pointer-events: none;
+}
+
+/* ── Footer Log ──────────────────────────────────── */
+#log-bar {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  height: var(--footer-h);
+  background: var(--bg-panel);
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  gap: 8px;
+  z-index: 100;
+}
+
+#log-prefix {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  flex-shrink: 0;
+}
+
+#log-message {
+  font-size: 11px;
+  color: var(--text-dim);
+  font-family: 'Courier New', monospace;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── Scrollbar global ────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-deep); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }

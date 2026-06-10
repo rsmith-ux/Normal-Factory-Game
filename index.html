@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FactoryGrid — Open World Factory Game</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       TOP BAR — Resources & Game Clock
+  ═══════════════════════════════════════════ -->
+  <header id="topbar">
+    <div id="game-title">⚙ FactoryGrid</div>
+    <div id="resource-bar">
+      <span class="res-item" id="res-iron">🪨 Iron: <strong id="val-iron">0</strong></span>
+      <span class="res-item" id="res-credits">💰 Credits: <strong id="val-credits">0</strong></span>
+      <span class="res-item" id="res-speed">⏱ Tick: <strong id="val-tick">1x</strong></span>
+    </div>
+    <div id="top-controls">
+      <button id="btn-speed-down" title="Slow Down">«</button>
+      <button id="btn-pause" title="Pause/Resume">⏸</button>
+      <button id="btn-speed-up" title="Speed Up">»</button>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════════
+       MAIN LAYOUT — Sidebar + Canvas
+  ═══════════════════════════════════════════ -->
+  <main id="main-layout">
+
+    <!-- LEFT SIDEBAR — Build Panel -->
+    <aside id="sidebar">
+      <div class="panel-title">BUILD</div>
+
+      <div class="build-category">
+        <div class="category-label">Extraction</div>
+        <button class="build-btn" data-type="mine" title="Place on an ore vein">
+          <span class="btn-icon">⛏</span>
+          <span class="btn-label">Mine</span>
+          <span class="btn-cost">Free</span>
+        </button>
+      </div>
+
+      <div class="build-category">
+        <div class="category-label">Logistics</div>
+        <button class="build-btn" data-type="conveyor_right" title="Moves items East">
+          <span class="btn-icon">→</span>
+          <span class="btn-label">Conveyor →</span>
+          <span class="btn-cost">Free</span>
+        </button>
+        <button class="build-btn" data-type="conveyor_left" title="Moves items West">
+          <span class="btn-icon">←</span>
+          <span class="btn-label">Conveyor ←</span>
+          <span class="btn-cost">Free</span>
+        </button>
+        <button class="build-btn" data-type="conveyor_up" title="Moves items North">
+          <span class="btn-icon">↑</span>
+          <span class="btn-label">Conveyor ↑</span>
+          <span class="btn-cost">Free</span>
+        </button>
+        <button class="build-btn" data-type="conveyor_down" title="Moves items South">
+          <span class="btn-icon">↓</span>
+          <span class="btn-label">Conveyor ↓</span>
+          <span class="btn-cost">Free</span>
+        </button>
+      </div>
+
+      <div class="build-category">
+        <div class="category-label">Commerce</div>
+        <button class="build-btn" data-type="sell_point" title="Sells iron for credits">
+          <span class="btn-icon">🏪</span>
+          <span class="btn-label">Sell Point</span>
+          <span class="btn-cost">Free</span>
+        </button>
+      </div>
+
+      <div class="build-category">
+        <div class="category-label">Tools</div>
+        <button class="build-btn active" data-type="delete" id="btn-delete">
+          <span class="btn-icon">🗑</span>
+          <span class="btn-label">Delete</span>
+          <span class="btn-cost">—</span>
+        </button>
+      </div>
+
+      <!-- Selected Tool Readout -->
+      <div id="selected-tool-box">
+        <div class="panel-title">SELECTED</div>
+        <div id="selected-tool-name">None</div>
+        <div id="selected-tool-desc">Click a build button, then click the map to place.</div>
+      </div>
+
+      <!-- Inspector Panel -->
+      <div id="inspector-box">
+        <div class="panel-title">INSPECTOR</div>
+        <div id="inspector-content">Click a cell to inspect.</div>
+      </div>
+    </aside>
+
+    <!-- MAP CANVAS -->
+    <div id="canvas-wrapper">
+      <canvas id="game-canvas"></canvas>
+      <div id="map-coords">x:0 y:0</div>
+    </div>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════════
+       BOTTOM LOG
+  ═══════════════════════════════════════════ -->
+  <footer id="log-bar">
+    <span id="log-prefix">LOG ›</span>
+    <span id="log-message">Welcome to FactoryGrid. Select a build tool and click the map to get started.</span>
+  </footer>
+
+  <!-- ═══════════════════════════════════════════
+       SCRIPTS — load order matters
+  ═══════════════════════════════════════════ -->
+  <script src="js/config.js"></script>
+  <script src="js/state.js"></script>
+  <script src="js/mapgen.js"></script>
+  <script src="js/buildings.js"></script>
+  <script src="js/conveyor.js"></script>
+  <script src="js/renderer.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/game.js"></script>
+
+</body>
+</html>
