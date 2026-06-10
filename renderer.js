@@ -154,7 +154,7 @@ const Renderer = (() => {
     ctx.fillStyle = bgColor;
     ctx.fillRect(px + pad, py + pad, C - pad * 2, C - pad * 2);
     ctx.strokeStyle = borderColor;
-    ctx.lineWidth = 1.5;
+    ctx.lineWidth = 3;
     ctx.strokeRect(px + pad, py + pad, C - pad * 2, C - pad * 2);
   }
 
