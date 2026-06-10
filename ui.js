@@ -150,7 +150,20 @@ const UI = (() => {
       inspectCell(cell.x, cell.y);
     });
   }
-
+  
+function initSaveControls() {
+  document.getElementById('btn-save').addEventListener('click', () => {
+    SaveSystem.save();
+  });
+  document.getElementById('btn-load').addEventListener('click', () => {
+    if (!SaveSystem.exists()) { log('No save file found.'); return; }
+    SaveSystem.load();
+  });
+  document.getElementById('btn-clear-save').addEventListener('click', () => {
+    if (!SaveSystem.exists()) { log('No save file to delete.'); return; }
+    if (confirm('Delete your save file? This cannot be undone.')) SaveSystem.clear();
+  });
+}
   // ── Speed controls ─────────────────────────────
   function initSpeedControls() {
     document.getElementById('btn-speed-up').addEventListener('click', () => {
@@ -182,6 +195,7 @@ const UI = (() => {
   function init() {
     initBuildButtons();
     initCanvas();
+    initSaveControls();
     initSpeedControls();
     selectTool('delete'); // default tool
   }
