@@ -16,10 +16,10 @@ const CONFIG = Object.freeze({
   ORE_MIN_SIZE: 2,       // minimum radius (in cells) of a vein cluster
   ORE_MAX_SIZE: 5,       // maximum radius (in cells) of a vein cluster
   ORE_MIN_RICHNESS: 1,   // minimum ore units a single cell can hold
-  ORE_MAX_RICHNESS: 6,   // maximum ore units a single cell can hold
+  ORE_MAX_RICHNESS: 3,   // maximum ore units a single cell can hold
 
   // ── Tick / Speed ─────────────────────────────────
-  BASE_TICK_MS: 800,     // milliseconds per game tick at 1x speed
+  BASE_TICK_MS: 1000,     // milliseconds per game tick at 1x speed
   SPEED_LEVELS: [0.5, 1, 2, 4],  // available speed multipliers (index 1 = default)
   DEFAULT_SPEED_IDX: 1,
 
